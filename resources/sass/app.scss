@@ -1,0 +1,49 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Tabler
+@import '~@tabler/core/src/scss/tabler';
+@import 'jquery-toast-plugin';
+@import 'sweetalert2/src/sweetalert2.scss';
+@import 'dropify/dist/css/dropify';
+@import '~jquery-ui/themes/base/draggable.css';
+@import '~jquery-ui/themes/base/sortable.css';
+
+// Variables
+//@import 'variables';
+
+// Bootstrap
+//@import '~bootstrap/scss/bootstrap';
+
+a{outline: 0}
+
+.navbar-brand-image {
+    height: 1rem;
+}
+
+.catalog {
+    padding-top:50px
+}
+
+.catalog .card-body {
+    background: #ececeb;
+}
+
+.catalog .menu-expanded{
+    top: 56px;
+}
+
+.catalog .card-img, .card-img-top {
+    max-width: 394px;
+    max-height: 749px;
+}
+
+.highlight {
+    background: #f7e7d3;
+    min-height: 30px;
+    list-style-type: none;
+}
+
+.handle {
+    cursor: move;
+}
