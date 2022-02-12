@@ -1,6 +1,6 @@
 @extends('main')
 @section('content')
-    <div class="content">
+    <div class="content"  style="padding-top:100px">
         <div class="container" id="cart-content">
             <div class="success"></div>
             @if (!$items->isEmpty())
@@ -113,8 +113,60 @@
             @endif
         </div>
     </div>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    
 @endsection
 @push('js')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script>
+        const dataItens = [];
+        const labels = [];
+        const contCategoria = 0;
+        const arrItens = [        
+            @foreach ($items as $item)
+            {
+                label:'{{$item->options->size}}',
+                value: {{$item->qty}}
+            },
+            @endforeach
+        ];
+
+        arrItens.forEach(item => {
+            labels.push(item.label)
+            dataItens.push(item.value)
+        })
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Gráfico dos tamanhos de rodas do carrinho',
+                data: dataItens,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)',
+                'rgb(102, 100, 90)'
+                ],
+                hoverOffset: 4,
+                offset: 10,
+                radius: '50%'
+            }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
     <script type="text/javascript">
         $(function() {
             $('.percent').mask('00,00', {
@@ -183,6 +235,5 @@
                 return true;
             });
         });
-
     </script>
 @endpush

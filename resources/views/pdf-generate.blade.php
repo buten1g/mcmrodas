@@ -72,10 +72,6 @@
                         <input type="text" class="form-control" name="fullName" placeholder="Nome e Sobrenome">
                     </div>
                     <div class="col-12 mt-3">
-                        <label class="form-label">Desconto %</label>
-                        <input type="text" class="form-control money" name="inputDiscount" placeholder="0,00">
-                    </div>
-                    <div class="col-12 mt-3">
                         <table class="table table-transparent table-responsive">
                             <tbody>
                                 <tr>
@@ -128,25 +124,6 @@
                     temp = $(this).val()
                     var newNum = temp + ",00"
                     $(this).val(newNum)
-                }
-            });
-            $("input[name='inputDiscount']").on('keyup', function(e) {
-                var total = parseFloat('"{{ $totalToCalc }}"'.replace(/[^\d.,]/g, "").replace('.', '')
-                    .replace(',', '.'));
-                var discount = parseFloat($(this).val().replace(/[^\d.,]/g, "").replace('.', '').replace(
-                    ',', '.'));
-                $("input[name='discount']").val(total - discount);
-                if (discount < total) {
-                    var _t = (total - discount).toLocaleString('pt-br', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    });
-                    $("#total").html(_t);
-                } else {
-                    $("#total").html(total.toLocaleString('pt-br', {
-                        style: 'currency',
-                        currency: 'BRL'
-                    }));
                 }
             });
             $(document).on('click', 'a.remove', function(e) {

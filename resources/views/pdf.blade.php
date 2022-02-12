@@ -12,7 +12,7 @@
 <body>
     <table align="center">
         <tr>
-            <td style="padding:40px 0"> <img src="https://www.workwheelsuk.com/skin/frontend/driftworks/workwheels/images/work-wheels-logo.png" alt="MCM Rodas"></td>
+            <td style="padding:40px 0"> <img src="https://www.gran-turismo.com/gtsport/decal/4764909567290115096_1.png" alt="MCM Rodas"></td>
         </tr>
     </table>
     <hr>
